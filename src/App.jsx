@@ -23,6 +23,8 @@ const App = () => {
     // You can also provide a custom RPC endpoint.
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
+    const rpcUrl = import.meta.env.ALCHEMT_RPC_URL;
+
     const wallets = useMemo(
         () => [
             /**
@@ -45,7 +47,7 @@ const App = () => {
 
     return (
         <div>
-            <ConnectionProvider endpoint={"https://solana-devnet.g.alchemy.com/v2/BqiipQIgAOjg0MEp0kfdvCH0xho4rvsJ"}>
+            <ConnectionProvider endpoint={rpcUrl}>
                 <WalletProvider wallets={[]} autoConnect>
                     <WalletModalProvider>
                         <WalletMultiButton />
